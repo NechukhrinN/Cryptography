@@ -1,17 +1,12 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
-#include <locale>
 #include <fstream>
-#include <conio.h>
 #include <vector>
-#include <iomanip>
-#include <algorithm>
 
 using namespace std;
 
 /*Реализовать в программе шифрование и дешифрацию содержимого файла по методу Цезаря с ключом.*/
-
 
 //В работе использован свой алфавит, состоящий из английских букв
 const string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -81,6 +76,7 @@ vector<string> encrypt(vector<string> text, size_t k)
 	}
 	return text;
 }
+
 //Дешифровка
 vector<string> decrypt(vector<string> text, size_t k)
 {
