@@ -11,7 +11,7 @@
 using namespace std;
 
 /*Реализовать в программе шифрование и дешифрацию содержимого файла по методу Цезаря с ключом.*/
-/*P.S. без учета пробела*/
+
 
 //В работе использован свой алфавит, состоящий из английских букв
 const string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
