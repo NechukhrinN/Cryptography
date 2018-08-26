@@ -9,7 +9,7 @@ using namespace std;
 /*Caesar cipher with a key*/
 /*File on input*/
 
-//В работе использован свой алфавит, состоящий из английских букв
+//Alphabet include english language
 const string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const size_t alph_size = alphabet.size();
 
@@ -123,7 +123,7 @@ int main()
 			case 1:   //Open file
 			{
 				//Format: *.txt if the file is in the same directory as the program
-				//Full path if not (*:\...\*.txt
+				//Full path if not (*:\...\*.txt)
 				cout << "Write a file name" << endl; 
 				path = "";
 				cin >> path;
@@ -132,7 +132,7 @@ int main()
 				break;
 			};
 			//Format: *.txt if the file is in the same directory as the program
-			//Full path if not (*:\...\*.txt
+			//Full path if not (*:\...\*.txt)
 			case 2:   //Output text from a file
 			{
 				if (text.size() == 0) cout << "Text is empty!" << endl;
