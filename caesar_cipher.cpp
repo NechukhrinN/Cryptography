@@ -6,13 +6,14 @@
 
 using namespace std;
 
-/*Реализовать в программе шифрование и дешифрацию содержимого файла по методу Цезаря с ключом.*/
+/*Caesar cipher with a key*/
+/*File on input*/
 
 //В работе использован свой алфавит, состоящий из английских букв
 const string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const size_t alph_size = alphabet.size();
 
-//Чтение файла
+//Read fron file
 vector<string> read_file(string file_name)
 {
 	vector<string> text;
@@ -32,7 +33,7 @@ vector<string> read_file(string file_name)
 	return text;
 }
 
-//Запись в файл
+//Write into file
 void write_file(string file_name, vector<string> text)
 {
 	string temp;
@@ -49,7 +50,7 @@ void write_file(string file_name, vector<string> text)
 	ost.close(); 
 }
 
-//Вывод текста из файла
+//Outputting text from a file
 void print_text(vector<string> text)
 {
 	for (size_t i = 0; i < text.size(); i++) {
@@ -57,7 +58,7 @@ void print_text(vector<string> text)
 	}
 }
 
-//Шифрование
+//Encryption
 vector<string> encrypt(vector<string> text, size_t k)
 {
 	k %= alph_size;
@@ -77,7 +78,7 @@ vector<string> encrypt(vector<string> text, size_t k)
 	return text;
 }
 
-//Дешифровка
+//Decryption
 vector<string> decrypt(vector<string> text, size_t k)
 {
 	k %= alph_size;
@@ -107,11 +108,11 @@ void showmenu()
 	cout << "0 - Exit\n";
 	cout << endl;
 }
-//реализация
+
 int main()
 {
 	size_t key = 0; bool num = true; int count = 0; string path = "";
-	vector<string> text;  //текст считанный из файла
+	vector<string> text;  //text read from file
 	while(num)
 	{
 		system("cls");
@@ -119,23 +120,27 @@ int main()
 		cin >> count;
 		switch (count)
 		{
-			case 1:   //Открыть файл
+			case 1:   //Open file
 			{
-				cout << "Write a file name" << endl;
+				//Format: *.txt if the file is in the same directory as the program
+				//Full path if not (*:\...\*.txt
+				cout << "Write a file name" << endl; 
 				path = "";
 				cin >> path;
 				text = read_file(path);
 				system("pause");
 				break;
 			};
-			case 2:   //Выписать строку из файла
+			//Format: *.txt if the file is in the same directory as the program
+			//Full path if not (*:\...\*.txt
+			case 2:   //Output text from a file
 			{
 				if (text.size() == 0) cout << "Text is empty!" << endl;
 				else print_text(text);
 				system("pause");
 				break;
 			};
-			case 3:   //Зашифровать файл
+			case 3:   //Encrypt file
 			{
 				if (text.size() == 0) cout << "Text is empty!" << endl;
 				else 
@@ -149,7 +154,8 @@ int main()
 				system("pause");
 				break;
 			};
-			case 4:   //Расшифровать файл
+			//To decrypt file you need to open it
+			case 4:   //Decrypt file
 			{
 				if (text.size() == 0) { cout << "Text is empty!" << endl; }
 				else {
@@ -162,7 +168,7 @@ int main()
 				system("pause");
 				break;
 			};
-			case 0:   //Выйти из программы
+			case 0:   //Exit the program
 			{
 				num = false;
 				exit(0);
