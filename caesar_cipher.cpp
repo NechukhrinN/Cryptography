@@ -63,23 +63,6 @@ void print_text(vector<string> text)
 }
 
 //Шифрование
-/*vector<string> encrypt(vector<string> text, size_t k)
-{
-	k %= alph_size;
-	string txt;
-	for (size_t i = 0; i < text.size(); ++i) {
-		txt = text[i];
-		for (size_t j = 0; j < txt.length(); ++j) 
-		{
-			if (isprint((unsigned char)txt[j])) 
-			{
-				txt[j] = alphabet[(alphabet.find(txt[j]) + k) % alph_size];
-			}
-		}
-		text[i] = txt;
-	}
-	return text;
-}*/
 vector<string> encrypt(vector<string> text, size_t k)
 {
 	k %= alph_size;
